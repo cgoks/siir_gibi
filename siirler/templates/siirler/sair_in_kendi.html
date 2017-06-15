@@ -1,0 +1,26 @@
+{% extends parent_template|default:"siirler/base_siirler.html" %}
+
+{% block title %}
+{{ block.super }} {{ sair.in_adi|title }}
+{% endblock %}
+
+{% block content %}
+<article>
+
+  <h2>{{ sair.in_adi|title }}</h2>
+  <h3>Şiirleri</h3>
+  <ul>
+
+    {% for siir in siirleri %}
+
+      <li>
+        <a href="{% url 'siir_listesu' %}{{siir.slug}}"> 
+          {{ siir.in_adi|title }}</a>
+      </li>
+    {% empty %}
+      <li><em>Şiirleri Bitmiş! Kalmamış!</em></li>
+    {% endfor %}
+  </ul>
+
+</article>
+ {% endblock %}

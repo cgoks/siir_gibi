@@ -1,0 +1,20 @@
+
+{% extends parent_template|default:"siirler/base_siirler.html" %}
+
+{% block title %}
+{{ block.super }} Şiirler
+{% endblock %}
+
+{% block content %}
+  <h2>Şiir Listesi</h2>
+  <ul>
+    {% for siir in siir_listesi %}
+      <li>
+        <a href="{{siir.slug}}"> 
+          {{ siir.in_adi |title}} - {{siir.in_sairi|title}}</a>
+      </li>
+    {% empty %}
+      <li><em>Şiirler Bitmiş! Kalmamış!</em></li>
+    {% endfor %}
+  </ul>
+{% endblock %}

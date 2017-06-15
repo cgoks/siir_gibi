@@ -1,0 +1,6 @@
+{% load i18n %}
+{% blocktrans %}Hesabınızı buraya {{ site.name }} tıklayarak açabilirsiniz. {% endblocktrans %}
+
+http://{{ site.domain }}{% url 'registration_activate' activation_key %}
+
+{% blocktrans %}Bu link {{ expiration_days }} gün için geçerlidir.{% endblocktrans %}

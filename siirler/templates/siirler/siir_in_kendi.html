@@ -1,0 +1,20 @@
+{% extends parent_template|default:"siirler/base_siirler.html" %}
+
+{% block title %}
+{{ block.super }} {{ siir.in_adi|title }}
+{% endblock %}
+
+{% block content %}
+<article>
+
+  <h2>{{ siir.in_adi|title }}</h2> 
+<h5><a href="{% url 'sair_listesu' %}{{sair.slug}}"> 
+          {{ siir.in_sairi|title}} </a></h5>
+
+{% load static %}
+<audio src="{% static "" %}{{kaydi}}" controls autoplay ></audio>
+
+  {{ siir.in_kendi|linebreaks }}
+
+</article>
+ {% endblock %}
